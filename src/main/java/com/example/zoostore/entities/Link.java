@@ -14,17 +14,21 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "links")
+
 public class Link {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column
+
     private UUID id;
 
     @Column
     private String url;
 
-
     @ManyToOne
-    @JoinColumn(name = "item_id",nullable = false)
+    @JoinColumn(name = "item_id")
     private Item item;
+
+
+
 }

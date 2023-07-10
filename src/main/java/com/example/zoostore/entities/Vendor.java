@@ -14,15 +14,19 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "vendors")
+
 public class Vendor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column
+
     private UUID id;
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "vendors")
+    @OneToMany(mappedBy = "vendor")
     private Set<Item> items;
+
+
 }

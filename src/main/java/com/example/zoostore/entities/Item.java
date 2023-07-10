@@ -13,10 +13,12 @@ import java.util.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "items")
+
 public class Item {
-    @Id
+
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column
+    @Id
     private UUID Id;
 
     @Column
@@ -25,19 +27,25 @@ public class Item {
     @Column
     private String description;
 
-    @ManyToMany()
+    @Column
+    private boolean archived;
+
+
+    @ManyToMany
     @JoinTable(
-            name = "item_vendor",
+            name = "item_tag",
             joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "vendor_id")
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-
-    private Set<Vendor> vendors ;
-
-    @OneToMany(mappedBy = "item")
     private Set<Tag> tags;
+
+    @ManyToOne
+    @JoinColumn(name = "vendor_id")
+    private Vendor vendor;
 
     @OneToMany(mappedBy = "item")
     private Set<Link> links;
+
+
 
 }
