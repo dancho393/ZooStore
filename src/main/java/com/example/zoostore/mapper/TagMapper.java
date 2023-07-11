@@ -11,9 +11,11 @@ import java.util.HashSet;
 @Component
 public class TagMapper {
     public Tag toEntity(TagInput tag){
-        Tag tagEntity = new Tag();
-        tagEntity.setTitle(tag.getTitle());
-        tagEntity.setItems(new HashSet<Item>());
+        Tag tagEntity = Tag.builder()
+                .title(tag.getTitle())
+                .items(new HashSet<Item>())
+                .build();
+
         return tagEntity;
     }
     public TagOutput toTagOutput(TagInput tag){

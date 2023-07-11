@@ -12,9 +12,10 @@ import java.util.HashSet;
 public class VendorMapper {
     public Vendor toEntity(VendorInput vendor){
 
-        Vendor vendorEntity = new Vendor();
-        vendorEntity.setName(vendor.getName());
-        vendorEntity.setItems(new HashSet<Item>());
+        Vendor vendorEntity =  Vendor.builder()
+                .name(vendor.getName())
+                .items(new HashSet<Item>())
+                .build();
         return vendorEntity;
     }
     public VendorOutput toVendorOutput(Vendor vendor){

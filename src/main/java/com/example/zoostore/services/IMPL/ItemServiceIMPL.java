@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ItemServiceIMPL {
+
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
     private final VendorServiceIMPL vendorService;
+    private final TagServiceIMPL tagService;
 
 
     public Item createItem(ItemInput item){
@@ -25,6 +27,8 @@ public class ItemServiceIMPL {
         return itemEntity;
 
     }
+    public void addTagToItem(){
 
+    }
 
 }

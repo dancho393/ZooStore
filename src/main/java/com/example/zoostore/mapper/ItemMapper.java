@@ -12,10 +12,11 @@ public class ItemMapper {
     }
 
     public Item toEntity(ItemInput item){
-        Item itemEntity =new Item();
-        itemEntity.setArchived(false);
-        itemEntity.setTitle(item.getTitle());
-        itemEntity.setDescription(item.getDescription());
+        Item itemEntity = Item.builder()
+                .archived(false)
+                .title(item.getTitle())
+                .description(item.getDescription())
+                .build();
 
         return itemEntity;
     }
