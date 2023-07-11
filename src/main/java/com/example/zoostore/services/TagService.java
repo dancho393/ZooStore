@@ -1,7 +1,7 @@
 package com.example.zoostore.services;
 
-import com.example.zoostore.dto.addTagIO.TagInput;
-import com.example.zoostore.dto.addTagIO.TagOutput;
+import com.example.zoostore.models.addTagIO.TagInput;
+import com.example.zoostore.models.addTagIO.TagOutput;
 import org.springframework.stereotype.Service;
 
 @Service

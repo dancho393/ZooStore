@@ -1,4 +1,4 @@
-package com.example.zoostore.dto.addVendorIO;
+package com.example.zoostore.models.addVendorIO;
 
 import lombok.*;
 

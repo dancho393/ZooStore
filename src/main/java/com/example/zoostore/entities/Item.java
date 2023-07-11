@@ -1,5 +1,6 @@
 package com.example.zoostore.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,7 +31,6 @@ public class Item {
     @Column
     private boolean archived;
 
-
     @ManyToMany
     @JoinTable(
             name = "item_tag",
@@ -41,11 +41,11 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "vendor_id")
+    @JsonBackReference // Add this annotation
+
     private Vendor vendor;
 
     @OneToMany(mappedBy = "item")
     private Set<Link> links;
-
-
 
 }

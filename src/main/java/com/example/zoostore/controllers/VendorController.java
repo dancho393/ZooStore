@@ -1,9 +1,8 @@
 package com.example.zoostore.controllers;
 
-import com.example.zoostore.dto.addVendorIO.VendorInput;
+import com.example.zoostore.models.addVendorIO.VendorInput;
 import com.example.zoostore.services.IMPL.VendorServiceIMPL;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

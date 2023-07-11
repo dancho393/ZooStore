@@ -1,6 +1,7 @@
 package com.example.zoostore.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class Vendor {
     private String name;
 
     @OneToMany(mappedBy = "vendor")
+    @JsonManagedReference // Add this annotation
     private Set<Item> items;
 
 

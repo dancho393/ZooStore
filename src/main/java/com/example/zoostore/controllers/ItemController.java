@@ -1,38 +1,36 @@
 package com.example.zoostore.controllers;
 
-import com.example.zoostore.dto.ItemDTO;
 import com.example.zoostore.entities.Item;
-import com.example.zoostore.mapper.ItemMapper;
+import com.example.zoostore.models.addItemIO.ItemInput;
 import com.example.zoostore.services.IMPL.ItemServiceIMPL;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.persistence.Table;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/items")
+@RequestMapping("/item")
 @RequiredArgsConstructor
 public class ItemController {
 
 
-    ItemServiceIMPL itemService;
+    private final ItemServiceIMPL itemService;
 
 
-    @PostMapping("/addItem")
+
+    @PostMapping("/createItem")
     @Tag(name = "add Item",description = "Create new item that will be added(title,description,vendors,links,tags)")
-    public ResponseEntity addItem(@RequestBody ItemDTO itemDTO){
+    public ResponseEntity createItem(@RequestBody ItemInput item){
+        Item itemEntity= itemService.createItem(item);
 
-       return ResponseEntity.ok(null);
+       return ResponseEntity.ok(itemEntity);
             }
 
-    @GetMapping("/getItem")
-    @Tag(name = "Get item",description = "get certain item")
-    public ResponseEntity getItem(){
+    @GetMapping("/addTag")
+    @Tag(name = "Add Tag",description = "Add Tag To Item")
+    public ResponseEntity addTag(@RequestBody String tag){
         return null;
+
     }
 
 

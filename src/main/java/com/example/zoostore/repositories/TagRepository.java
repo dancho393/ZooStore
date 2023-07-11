@@ -1,6 +1,5 @@
 package com.example.zoostore.repositories;
 
-import com.example.zoostore.dto.addTagIO.TagOutput;
 import com.example.zoostore.entities.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

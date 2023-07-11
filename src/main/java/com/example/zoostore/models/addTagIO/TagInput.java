@@ -1,4 +1,4 @@
-package com.example.zoostore.dto.addTagIO;
+package com.example.zoostore.models.addTagIO;
 
 import lombok.*;
 

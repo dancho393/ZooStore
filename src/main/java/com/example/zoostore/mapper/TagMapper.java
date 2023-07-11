@@ -1,7 +1,7 @@
 package com.example.zoostore.mapper;
 
-import com.example.zoostore.dto.addTagIO.TagInput;
-import com.example.zoostore.dto.addTagIO.TagOutput;
+import com.example.zoostore.models.addTagIO.TagInput;
+import com.example.zoostore.models.addTagIO.TagOutput;
 import com.example.zoostore.entities.Item;
 import com.example.zoostore.entities.Tag;
 import org.springframework.stereotype.Component;

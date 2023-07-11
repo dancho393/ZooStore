@@ -1,6 +1,6 @@
 package com.example.zoostore.controllers;
 
-import com.example.zoostore.dto.addTagIO.TagInput;
+import com.example.zoostore.models.addTagIO.TagInput;
 import com.example.zoostore.services.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
