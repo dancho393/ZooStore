@@ -1,13 +1,13 @@
 package com.example.zoostore.services.IMPL;
 
-import com.example.zoostore.entities.Item;
-import com.example.zoostore.entities.Tag;
+import com.example.zoostore.data.entities.Item;
+import com.example.zoostore.data.entities.Tag;
 import com.example.zoostore.models.addTagToItem.addTagToItemRequest;
 import com.example.zoostore.models.addTagToItem.addTagToItemResponse;
 import com.example.zoostore.models.createTagIO.TagInput;
 import com.example.zoostore.models.createTagIO.TagOutput;
-import com.example.zoostore.mapper.TagMapper;
-import com.example.zoostore.repositories.TagRepository;
+import com.example.zoostore.bussiness.mapper.TagMapper;
+import com.example.zoostore.data.repositories.TagRepository;
 import com.example.zoostore.services.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,8 +22,8 @@ public class TagServiceIMPL implements TagService {
 
     @Override
     public TagOutput createTag(TagInput tag) {
-        tagRepository.save(tagMapper.toEntity(tag));
-        return tagMapper.toTagOutput(tag);
+        //tagRepository.save(tagMapper.toEntity(tag));
+        return null;
     }
 
     public addTagToItemResponse attachTag(addTagToItemRequest input){

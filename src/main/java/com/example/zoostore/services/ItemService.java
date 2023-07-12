@@ -1,7 +1,6 @@
 package com.example.zoostore.services;
 
-import com.example.zoostore.entities.Item;
-import com.example.zoostore.models.addTagToItem.addTagToItemRequest;
+import com.example.zoostore.data.entities.Item;
 import com.example.zoostore.models.createItemIO.ItemInput;
 import org.springframework.stereotype.Service;
 

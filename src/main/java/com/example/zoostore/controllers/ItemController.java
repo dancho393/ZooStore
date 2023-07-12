@@ -1,10 +1,13 @@
 package com.example.zoostore.controllers;
 
-import com.example.zoostore.entities.Item;
-import com.example.zoostore.models.archieveItem.archieveItemRequest;
-import com.example.zoostore.models.createItemIO.ItemInput;
-import com.example.zoostore.models.addTagToItem.addTagToItemRequest;
-import com.example.zoostore.services.IMPL.ItemServiceIMPL;
+import com.example.zoostore.api.operations.item.archieve.ArchieveItemRequest;
+import com.example.zoostore.api.operations.item.archieve.ArchieveItemService;
+import com.example.zoostore.api.operations.item.create.CreateItemRequest;
+import com.example.zoostore.api.operations.item.create.CreateItemService;
+import com.example.zoostore.api.operations.item.edit.EditItemRequest;
+import com.example.zoostore.api.operations.item.edit.EditItemService;
+import com.example.zoostore.api.operations.item.get.GetItemRequest;
+import com.example.zoostore.api.operations.item.get.GetItemService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,21 +17,29 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/item")
 @RequiredArgsConstructor
 public class ItemController {
-
-
-    private final ItemServiceIMPL itemService;
+    private final ArchieveItemService archieveItemService;
+    private final CreateItemService createItemService;
+    private final EditItemService editItemService;
+    private final GetItemService getItemService;
 
     @PostMapping("/createItem")
     @Tag(name = "add Item",description = "Create new item that will be added(title,description,vendors,links,tags)")
-    public ResponseEntity createItem(@RequestBody ItemInput item){
-        Item itemEntity= itemService.createItem(item);
+    public ResponseEntity createItem(@RequestBody CreateItemRequest item){;
 
-       return ResponseEntity.ok(itemEntity);
+       return ResponseEntity.ok(createItemService.createItem(item));
             }
+            @PostMapping("/archieve")
+    public ResponseEntity archieveItem(@RequestBody ArchieveItemRequest item){
+        return ResponseEntity.ok(archieveItemService.archieveItem(item));
 
-    public ResponseEntity archieveItem(@RequestBody archieveItemRequest id){
-        return ResponseEntity.ok(null);
-
+    }
+    @PutMapping("/editItem")
+    public ResponseEntity editItem(@RequestBody EditItemRequest item){
+        return ResponseEntity.ok(editItemService.editItem(item));
+    }
+    @GetMapping("/getItem")
+    public ResponseEntity getItem(@RequestBody GetItemRequest item){
+        return ResponseEntity.ok(getItemService.getItem(item));
     }
 
 

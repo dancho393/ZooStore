@@ -1,6 +1,6 @@
 package com.example.zoostore.services;
 
-import com.example.zoostore.entities.Vendor;
+import com.example.zoostore.data.entities.Vendor;
 import com.example.zoostore.models.createVendorIO.VendorInput;
 import com.example.zoostore.models.createVendorIO.VendorOutput;
 import org.springframework.stereotype.Service;

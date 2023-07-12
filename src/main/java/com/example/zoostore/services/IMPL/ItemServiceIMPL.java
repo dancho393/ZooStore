@@ -1,9 +1,10 @@
 package com.example.zoostore.services.IMPL;
 
+import com.example.zoostore.models.archieveItem.archieveItemReponse;
 import com.example.zoostore.models.createItemIO.ItemInput;
-import com.example.zoostore.entities.Item;
-import com.example.zoostore.mapper.ItemMapper;
-import com.example.zoostore.repositories.ItemRepository;
+import com.example.zoostore.data.entities.Item;
+import com.example.zoostore.bussiness.mapper.ItemMapper;
+import com.example.zoostore.data.repositories.ItemRepository;
 import com.example.zoostore.services.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,11 @@ public class ItemServiceIMPL implements ItemService {
     @Override
     public Item createItem(ItemInput item){
 
-        Item  itemEntity= itemMapper.toEntity(item);
-        itemEntity.setVendor(vendorService.getById(item.getVendor()));
-        itemRepository.save(itemEntity);
+//        Item  itemEntity= itemMapper.toEntity(item);
+//        itemEntity.setVendor(vendorService.getById(item.getVendor()));
+//        itemRepository.save(itemEntity);
 
-        return itemEntity;
+        return null;
     }
     @Override
     public Item getItemById(UUID id){
@@ -36,6 +37,16 @@ public class ItemServiceIMPL implements ItemService {
     }
     public void saveItem(Item item){
         itemRepository.save(item);
+    }
+    public archieveItemReponse archieveItem(UUID itemId){
+        Item item = itemRepository.findById(itemId).orElse(null);
+        item.setArchived(true);
+        itemRepository.save(item);
+        return new archieveItemReponse().builder()
+                .itemId(item.getId())
+                .title(item.getTitle())
+                .archieve(item.isArchived())
+                .build();
     }
 
 

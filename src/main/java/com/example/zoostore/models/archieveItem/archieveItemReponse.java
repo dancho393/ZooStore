@@ -1,14 +1,14 @@
 package com.example.zoostore.models.archieveItem;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
 @AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@Builder
 public class archieveItemReponse {
     private UUID itemId;
     private String title;
