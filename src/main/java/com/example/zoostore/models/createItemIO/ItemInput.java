@@ -1,7 +1,6 @@
-package com.example.zoostore.models.addItemIO;
+package com.example.zoostore.models.createItemIO;
 
-import com.example.zoostore.models.addTagIO.TagInput;
-import com.example.zoostore.models.addVendorIO.VendorInput;
+import com.example.zoostore.models.createTagIO.TagInput;
 import lombok.*;
 
 import java.util.Set;

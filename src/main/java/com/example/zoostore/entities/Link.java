@@ -19,7 +19,6 @@ public class Link {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column
-
     private UUID id;
 
     @Column

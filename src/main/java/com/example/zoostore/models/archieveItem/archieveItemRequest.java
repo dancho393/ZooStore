@@ -1,16 +1,13 @@
-package com.example.zoostore.models.addTagToItem;
+package com.example.zoostore.models.archieveItem;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.UUID;
-
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
-public class addTagToItemRequest {
+public class archieveItemRequest {
     private UUID itemId;
-    private UUID tagId;
-
 }

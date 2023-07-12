@@ -1,6 +1,6 @@
 package com.example.zoostore.mapper;
 
-import com.example.zoostore.models.addItemIO.ItemInput;
+import com.example.zoostore.models.createItemIO.ItemInput;
 import com.example.zoostore.entities.Item;
 import org.springframework.stereotype.Component;
 

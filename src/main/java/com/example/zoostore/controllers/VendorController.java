@@ -1,6 +1,6 @@
 package com.example.zoostore.controllers;
 
-import com.example.zoostore.models.addVendorIO.VendorInput;
+import com.example.zoostore.models.createVendorIO.VendorInput;
 import com.example.zoostore.services.IMPL.VendorServiceIMPL;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
