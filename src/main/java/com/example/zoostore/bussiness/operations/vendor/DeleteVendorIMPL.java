@@ -5,7 +5,6 @@ import com.example.zoostore.api.operations.vendor.delete.DeleteVendorResponse;
 import com.example.zoostore.api.operations.vendor.delete.DeleteVendorService;
 import com.example.zoostore.data.entities.Vendor;
 import com.example.zoostore.data.repositories.VendorRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -2,6 +2,7 @@ package com.example.zoostore.data.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class Link {
     private UUID id;
 
     @Column
+    @NotBlank
     private String url;
 
     @ManyToOne

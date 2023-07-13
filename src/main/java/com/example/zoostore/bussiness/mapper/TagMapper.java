@@ -2,8 +2,6 @@ package com.example.zoostore.bussiness.mapper;
 
 import com.example.zoostore.api.operations.tag.create.CreateTagRequest;
 import com.example.zoostore.api.operations.tag.create.CreateTagResponse;
-import com.example.zoostore.models.createTagIO.TagInput;
-import com.example.zoostore.models.createTagIO.TagOutput;
 import com.example.zoostore.data.entities.Item;
 import com.example.zoostore.data.entities.Tag;
 import org.springframework.stereotype.Component;

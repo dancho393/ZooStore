@@ -13,5 +13,5 @@ public class EditItemResponse {
     private UUID id;
     private String title;
     private String description;
-    private UUID vendor;
+    private String vendor;
 }

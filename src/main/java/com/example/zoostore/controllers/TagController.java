@@ -1,14 +1,12 @@
 package com.example.zoostore.controllers;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.tag.attach.AttachTagRequest;
 import com.example.zoostore.api.operations.tag.create.CreateTagRequest;
 import com.example.zoostore.api.operations.tag.delete.DeleteTagRequest;
 import com.example.zoostore.api.operations.tag.edit.EditTagRequest;
 import com.example.zoostore.api.operations.tag.get.GetTagRequest;
 import com.example.zoostore.bussiness.operations.tag.*;
-import com.example.zoostore.models.addTagToItem.addTagToItemRequest;
-import com.example.zoostore.models.createTagIO.TagInput;
-import com.example.zoostore.services.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +39,7 @@ public class TagController {
         return ResponseEntity.ok(getTagService.getTag(tag));
     }
     @PostMapping("/attachTag")
-    public ResponseEntity attachTagToItem(@RequestBody AttachTagRequest input){
+    public ResponseEntity attachTagToItem(@RequestBody AttachTagRequest input) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(attachTag.attachTag(input));
     }
 

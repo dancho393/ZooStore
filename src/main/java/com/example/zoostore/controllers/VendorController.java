@@ -8,8 +8,6 @@ import com.example.zoostore.api.operations.vendor.edit.EditVendorRequest;
 import com.example.zoostore.api.operations.vendor.edit.EditVendorService;
 import com.example.zoostore.api.operations.vendor.get.GetVendorRequest;
 import com.example.zoostore.api.operations.vendor.get.GetVendorService;
-import com.example.zoostore.models.createVendorIO.VendorInput;
-import com.example.zoostore.services.IMPL.VendorServiceIMPL;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

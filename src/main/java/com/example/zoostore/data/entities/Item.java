@@ -2,9 +2,11 @@ package com.example.zoostore.data.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.util.*;
+import java.util.Set;
+import java.util.UUID;
 
 
 @Getter
@@ -23,9 +25,11 @@ public class Item {
     private UUID Id;
 
     @Column
+    @NotBlank
     private String title;
 
     @Column
+    @NotBlank
     private String description;
 
     @Column

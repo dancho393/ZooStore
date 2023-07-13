@@ -2,7 +2,6 @@ package com.example.zoostore.api.operations.item.get;
 
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 

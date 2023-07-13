@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.tag;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.tag.attach.AttachTagRequest;
 import com.example.zoostore.api.operations.tag.attach.AttachTagResponse;
 import com.example.zoostore.api.operations.tag.attach.AttachTagService;
@@ -7,7 +8,6 @@ import com.example.zoostore.data.entities.Item;
 import com.example.zoostore.data.entities.Tag;
 import com.example.zoostore.data.repositories.ItemRepository;
 import com.example.zoostore.data.repositories.TagRepository;
-import com.example.zoostore.models.addTagToItem.addTagToItemResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +17,9 @@ public class AttachTagIMPL implements AttachTagService {
     private final TagRepository tagRepository;
     private final ItemRepository itemRepository;
     @Override
-    public AttachTagResponse attachTag(AttachTagRequest tagToItem) {
-        Tag tag=tagRepository.getById(tagToItem.getTagId());
+    public AttachTagResponse attachTag(AttachTagRequest tagToItem) throws ResourceNotFoundExpcetion {
+        Tag tag=tagRepository.findById(tagToItem.getTagId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Tag Not Found"));
         Item item = itemRepository.findById(tagToItem.getItemId()).orElse(null);
 
         tag.getItems().add(item);

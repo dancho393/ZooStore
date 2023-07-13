@@ -1,7 +1,6 @@
 package com.example.zoostore.bussiness.mapper;
 
 import com.example.zoostore.api.operations.item.create.CreateItemRequest;
-import com.example.zoostore.models.createItemIO.ItemInput;
 import com.example.zoostore.data.entities.Item;
 import org.springframework.stereotype.Component;
 

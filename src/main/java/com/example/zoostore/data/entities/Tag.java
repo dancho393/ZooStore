@@ -2,6 +2,7 @@ package com.example.zoostore.data.entities;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.Set;
@@ -23,6 +24,7 @@ public class Tag {
     private UUID id;
 
     @Column
+    @NotBlank
     private String title;
 
     @ManyToMany(mappedBy = "tags")

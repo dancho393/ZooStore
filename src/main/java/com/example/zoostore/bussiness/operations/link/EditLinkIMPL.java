@@ -1,6 +1,5 @@
 package com.example.zoostore.bussiness.operations.link;
 
-import com.example.zoostore.api.operations.item.edit.EditItemRequest;
 import com.example.zoostore.api.operations.link.edit.EditLinkRequest;
 import com.example.zoostore.api.operations.link.edit.EditLinkResponse;
 import com.example.zoostore.api.operations.link.edit.EditLinkService;

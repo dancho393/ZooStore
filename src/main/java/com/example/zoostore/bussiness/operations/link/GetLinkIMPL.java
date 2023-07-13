@@ -1,6 +1,5 @@
 package com.example.zoostore.bussiness.operations.link;
 
-import com.example.zoostore.api.operations.item.get.GetItemResponse;
 import com.example.zoostore.api.operations.link.get.GetLinkRequest;
 import com.example.zoostore.api.operations.link.get.GetLinkResponse;
 import com.example.zoostore.api.operations.link.get.GetLinkService;
