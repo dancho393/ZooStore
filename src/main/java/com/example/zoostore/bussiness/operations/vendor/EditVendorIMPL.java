@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.vendor;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.vendor.edit.EditVendorRequest;
 import com.example.zoostore.api.operations.vendor.edit.EditVendorResponse;
 import com.example.zoostore.api.operations.vendor.edit.EditVendorService;
@@ -14,8 +15,9 @@ public class EditVendorIMPL implements EditVendorService {
     private final VendorRepository vendorRepository;
 
     @Override
-    public EditVendorResponse edinVendor(EditVendorRequest vendor) {
-        Vendor vendorEntity = vendorRepository.findById(vendor.getId()).orElse(null);
+    public EditVendorResponse edinVendor(EditVendorRequest vendor) throws ResourceNotFoundExpcetion {
+        Vendor vendorEntity = vendorRepository.findById(vendor.getId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Vendor Not Found"));
         vendorEntity.setName(vendor.getName());
         vendorRepository.save(vendorEntity);
         return EditVendorResponse.builder()

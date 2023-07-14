@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.tag;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.tag.get.GetTagRequest;
 import com.example.zoostore.api.operations.tag.get.GetTagResponce;
 import com.example.zoostore.api.operations.tag.get.GetTagService;
@@ -15,8 +16,9 @@ public class GetTagIMPL implements GetTagService {
 
 
     @Override
-    public GetTagResponce getTag(GetTagRequest tag) {
-        Tag tagEntity = tagRepository.findById(tag.getId()).orElse(null);
+    public GetTagResponce getTag(GetTagRequest tag) throws ResourceNotFoundExpcetion {
+        Tag tagEntity = tagRepository.findById(tag.getId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Tag Not Found"));
         return GetTagResponce.builder()
                 .id(tagEntity.getId())
                 .title(tagEntity.getTitle())

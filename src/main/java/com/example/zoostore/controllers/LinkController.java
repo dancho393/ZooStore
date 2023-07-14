@@ -1,5 +1,6 @@
 package com.example.zoostore.controllers;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.link.create.CreateLinkRequest;
 import com.example.zoostore.api.operations.link.create.CreateLinkService;
 import com.example.zoostore.api.operations.link.delete.DeleteLinkRequest;
@@ -33,12 +34,12 @@ public class LinkController {
         return ResponseEntity.ok(deleteLinkService.deleteLink(link));
     }
     @PutMapping("/editLink")
-    public ResponseEntity editLink(@RequestBody EditLinkRequest link){
+    public ResponseEntity editLink(@RequestBody EditLinkRequest link) throws ResourceNotFoundExpcetion {
 
         return ResponseEntity.ok(editLinkService.editLink(link));
     }
     @GetMapping("/getLink")
-    public ResponseEntity getLink(@RequestBody GetLinkRequest link){
+    public ResponseEntity getLink(@RequestBody GetLinkRequest link) throws ResourceNotFoundExpcetion {
 
         return ResponseEntity.ok(getLinkService.getLink(link));
     }

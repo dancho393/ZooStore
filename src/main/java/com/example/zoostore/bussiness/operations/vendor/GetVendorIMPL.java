@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.vendor;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.vendor.get.GetVendorRequest;
 import com.example.zoostore.api.operations.vendor.get.GetVendorResponse;
 import com.example.zoostore.api.operations.vendor.get.GetVendorService;
@@ -13,8 +14,9 @@ import org.springframework.stereotype.Service;
 public class GetVendorIMPL implements GetVendorService {
     private final VendorRepository vendorRepository;
     @Override
-    public GetVendorResponse getVendor(GetVendorRequest vendor) {
-        Vendor vendorEntity =vendorRepository.findById(vendor.getId()).orElse(null);
+    public GetVendorResponse getVendor(GetVendorRequest vendor) throws ResourceNotFoundExpcetion {
+        Vendor vendorEntity =vendorRepository.findById(vendor.getId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Tag Not Found"));
         return GetVendorResponse.builder()
                 .id(vendorEntity.getId())
                 .name(vendorEntity.getName())

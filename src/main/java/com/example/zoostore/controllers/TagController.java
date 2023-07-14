@@ -3,6 +3,7 @@ package com.example.zoostore.controllers;
 import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.tag.attach.AttachTagRequest;
 import com.example.zoostore.api.operations.tag.create.CreateTagRequest;
+import com.example.zoostore.api.operations.tag.deattach.DetachTagRequest;
 import com.example.zoostore.api.operations.tag.delete.DeleteTagRequest;
 import com.example.zoostore.api.operations.tag.edit.EditTagRequest;
 import com.example.zoostore.api.operations.tag.get.GetTagRequest;
@@ -21,6 +22,7 @@ public class TagController {
     private final EditTagIMPL editTag;
     private final GetTagIMPL getTagService;
     private final AttachTagIMPL attachTag;
+    private final DetachTagIMPL detachTag;
 
     @PostMapping("/createTag")
     public ResponseEntity addTag(@RequestBody CreateTagRequest tag){
@@ -31,16 +33,19 @@ public class TagController {
         return ResponseEntity.ok(deleteTagService.deleteTag(tag));
     }
     @PutMapping("/editTag")
-    public ResponseEntity editTag(@RequestBody EditTagRequest tag){
+    public ResponseEntity editTag(@RequestBody EditTagRequest tag) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(editTag.editTag(tag));
     }
     @GetMapping("getTag")
-    public ResponseEntity getTag(@RequestBody GetTagRequest tag){
+    public ResponseEntity getTag(@RequestBody GetTagRequest tag) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(getTagService.getTag(tag));
     }
     @PostMapping("/attachTag")
     public ResponseEntity attachTagToItem(@RequestBody AttachTagRequest input) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(attachTag.attachTag(input));
+    }
+    public ResponseEntity detachTagToItem(@RequestBody DetachTagRequest tagItem) throws ResourceNotFoundExpcetion {
+        return ResponseEntity.ok(detachTag.detachTag(tagItem));
     }
 
 }

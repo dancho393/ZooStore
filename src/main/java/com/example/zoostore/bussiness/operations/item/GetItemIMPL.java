@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.item;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemResponse;
 import com.example.zoostore.api.operations.item.get.GetItemService;
@@ -18,9 +19,9 @@ import java.util.stream.Collectors;
 public class GetItemIMPL implements GetItemService {
     private final ItemRepository itemRepository;
     @Override
-    public GetItemResponse getItem(GetItemRequest item) {
+    public GetItemResponse getItem(GetItemRequest item) throws ResourceNotFoundExpcetion {
         Item itemEntity = itemRepository.findById(item.getId())
-                .orElse(null);
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Item Not Found"));
         Set<String> links = itemEntity.getLinks()
                 .stream()
                 .map(Link::getUrl)

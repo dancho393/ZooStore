@@ -1,5 +1,6 @@
 package com.example.zoostore.controllers;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.item.archieve.ArchieveItemRequest;
 import com.example.zoostore.api.operations.item.archieve.ArchieveItemService;
 import com.example.zoostore.api.operations.item.create.CreateItemRequest;
@@ -29,16 +30,16 @@ public class ItemController {
        return ResponseEntity.ok(createItemService.createItem(item));
             }
             @PostMapping("/archieve")
-    public ResponseEntity archieveItem(@RequestBody ArchieveItemRequest item){
+    public ResponseEntity archieveItem(@RequestBody ArchieveItemRequest item) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(archieveItemService.archieveItem(item));
 
     }
     @PutMapping("/editItem")
-    public ResponseEntity editItem(@RequestBody EditItemRequest item){
+    public ResponseEntity editItem(@RequestBody EditItemRequest item) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(editItemService.editItem(item));
     }
     @GetMapping("/getItem")
-    public ResponseEntity getItem(@RequestBody GetItemRequest item){
+    public ResponseEntity getItem(@RequestBody GetItemRequest item) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(getItemService.getItem(item));
     }
 

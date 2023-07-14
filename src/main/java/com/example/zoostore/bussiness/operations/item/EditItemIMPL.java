@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.item;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.item.edit.EditItemRequest;
 import com.example.zoostore.api.operations.item.edit.EditItemResponse;
 import com.example.zoostore.api.operations.item.edit.EditItemService;
@@ -18,8 +19,9 @@ public class EditItemIMPL implements EditItemService {
 
 
     @Override
-    public EditItemResponse editItem(EditItemRequest item) {
-        Item itemEntity = itemRepository.findById(item.getId()).orElse(null);
+    public EditItemResponse editItem(EditItemRequest item) throws ResourceNotFoundExpcetion {
+        Item itemEntity = itemRepository.findById(item.getId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Item Not Found"));
         itemEntity.setTitle(item.getTitle());
         itemEntity.setDescription(item.getDescription());
         Vendor vendorEntity = vendorRepository.findById(item.getVendor()).orElse(null);

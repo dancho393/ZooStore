@@ -20,7 +20,8 @@ public class AttachTagIMPL implements AttachTagService {
     public AttachTagResponse attachTag(AttachTagRequest tagToItem) throws ResourceNotFoundExpcetion {
         Tag tag=tagRepository.findById(tagToItem.getTagId())
                 .orElseThrow(()->new ResourceNotFoundExpcetion("Tag Not Found"));
-        Item item = itemRepository.findById(tagToItem.getItemId()).orElse(null);
+        Item item = itemRepository.findById(tagToItem.getItemId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Item Not Found"));
 
         tag.getItems().add(item);
         item.getTags().add(tag);

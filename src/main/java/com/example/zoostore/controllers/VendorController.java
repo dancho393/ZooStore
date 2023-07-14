@@ -1,5 +1,6 @@
 package com.example.zoostore.controllers;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.vendor.create.CreateVendorRequest;
 import com.example.zoostore.api.operations.vendor.create.CreateVendorService;
 import com.example.zoostore.api.operations.vendor.delete.DeleteVendorRequest;
@@ -27,15 +28,15 @@ public class VendorController {
         return ResponseEntity.ok(createVendorService.createVendor(vendor));
     }
     @DeleteMapping("/deleteVendor")
-    public ResponseEntity deleteVendor(@RequestBody DeleteVendorRequest vendor){
+    public ResponseEntity deleteVendor(@RequestBody DeleteVendorRequest vendor) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(deleteVendorService.deleteVendor(vendor));
     }
     @PutMapping("/editVendor")
-    public ResponseEntity editVendor(@RequestBody EditVendorRequest vendor){
+    public ResponseEntity editVendor(@RequestBody EditVendorRequest vendor) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(editVendorService.edinVendor(vendor));
     }
     @GetMapping("/getVendor")
-    public ResponseEntity getVendor(@RequestBody GetVendorRequest vendor){
+    public ResponseEntity getVendor(@RequestBody GetVendorRequest vendor) throws ResourceNotFoundExpcetion {
         return ResponseEntity.ok(getVendorService.getVendor(vendor));
     }
 }

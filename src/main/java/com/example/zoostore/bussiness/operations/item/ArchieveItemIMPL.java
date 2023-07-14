@@ -1,5 +1,6 @@
 package com.example.zoostore.bussiness.operations.item;
 
+import com.example.zoostore.api.configs.ResourceNotFoundExpcetion;
 import com.example.zoostore.api.operations.item.archieve.ArchieveItemRequest;
 import com.example.zoostore.api.operations.item.archieve.ArchieveItemResponse;
 import com.example.zoostore.api.operations.item.archieve.ArchieveItemService;
@@ -15,8 +16,9 @@ public class ArchieveItemIMPL implements ArchieveItemService {
 
 
     @Override
-    public ArchieveItemResponse archieveItem(ArchieveItemRequest item) {
-        Item itemEntity=itemRepository.findById(item.getId()).orElse(null);
+    public ArchieveItemResponse archieveItem(ArchieveItemRequest item) throws ResourceNotFoundExpcetion {
+        Item itemEntity=itemRepository.findById(item.getId())
+                .orElseThrow(()->new ResourceNotFoundExpcetion("Item Not Found"));
         itemEntity.setArchived(true);
         itemRepository.save(itemEntity);
         return ArchieveItemResponse.builder()
