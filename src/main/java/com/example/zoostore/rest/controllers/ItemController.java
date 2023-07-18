@@ -10,6 +10,7 @@ import com.example.zoostore.api.operations.item.edit.EditItemService;
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,21 +26,21 @@ public class ItemController {
 
     @PostMapping("/createItem")
     @Tag(name = "add Item",description = "Create new item that will be added(title,description,vendors,links,tags)")
-    public ResponseEntity createItem(@RequestBody CreateItemRequest item){;
+    public ResponseEntity createItem(@Valid  @RequestBody CreateItemRequest item){;
 
        return ResponseEntity.ok(createItemService.process(item));
             }
             @PostMapping("/archieve")
-    public ResponseEntity archieveItem(@RequestBody ArchieveItemRequest item) throws ResourceNotFoundException {
+    public ResponseEntity archieveItem(@Valid @RequestBody ArchieveItemRequest item) throws ResourceNotFoundException {
         return ResponseEntity.ok(archieveItemService.process(item));
 
     }
     @PutMapping("/editItem")
-    public ResponseEntity editItem(@RequestBody EditItemRequest item) throws ResourceNotFoundException {
+    public ResponseEntity editItem(@Valid @RequestBody EditItemRequest item) throws ResourceNotFoundException {
         return ResponseEntity.ok(editItemService.process(item));
     }
     @GetMapping("/getItem")
-    public ResponseEntity getItem(@RequestBody GetItemRequest item) throws ResourceNotFoundException {
+    public ResponseEntity getItem(@Valid @RequestBody GetItemRequest item) throws ResourceNotFoundException {
         return ResponseEntity.ok(getItemService.process(item));
     }
 

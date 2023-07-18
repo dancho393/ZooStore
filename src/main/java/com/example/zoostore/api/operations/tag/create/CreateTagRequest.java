@@ -1,6 +1,7 @@
 package com.example.zoostore.api.operations.tag.create;
 
-import com.example.zoostore.api.operations.OperationRequest;
+import com.example.zoostore.api.operations.base.OperationRequest;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -9,5 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateTagRequest implements OperationRequest {
+    @NotBlank
     private String title;
 }

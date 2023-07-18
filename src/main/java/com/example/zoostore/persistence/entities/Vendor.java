@@ -25,7 +25,6 @@ public class Vendor {
 
     private UUID id;
     @Column
-    @NotBlank
     private String name;
 
     @OneToMany(mappedBy = "vendor")

@@ -23,7 +23,7 @@ public class Link {
     private UUID id;
 
     @Column
-    @NotBlank
+
     private String url;
 
     @ManyToOne

@@ -20,11 +20,9 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column
-
     private UUID id;
 
     @Column
-    @NotBlank
     private String title;
 
     @ManyToMany(mappedBy = "tags")

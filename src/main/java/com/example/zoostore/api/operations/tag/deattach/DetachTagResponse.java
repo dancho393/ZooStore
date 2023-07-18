@@ -1,6 +1,6 @@
 package com.example.zoostore.api.operations.tag.deattach;
 
-import com.example.zoostore.api.operations.OperationResponse;
+import com.example.zoostore.api.operations.base.OperationResponse;
 import com.example.zoostore.persistence.entities.Item;
 import lombok.*;
 

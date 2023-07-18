@@ -25,11 +25,11 @@ public class Item {
     private UUID Id;
 
     @Column
-    @NotBlank
+
     private String title;
 
     @Column
-    @NotBlank
+
     private String description;
 
     @Column

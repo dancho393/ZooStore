@@ -1,6 +1,7 @@
 package com.example.zoostore.api.operations.link.edit;
 
-import com.example.zoostore.api.operations.OperationRequest;
+import com.example.zoostore.api.operations.base.OperationRequest;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.UUID;
@@ -11,6 +12,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EditLinkRequest  implements OperationRequest {
+    @NotBlank
     private UUID id;
+    @NotBlank
     private String url;
 }
