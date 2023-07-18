@@ -1,5 +1,6 @@
 package com.example.zoostore.api.operations.link.get;
 
+import com.example.zoostore.api.operations.OperationResponse;
 import lombok.*;
 
 import java.util.UUID;
@@ -9,7 +10,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetLinkResponse {
+public class GetLinkResponse implements OperationResponse {
     private UUID id;
     private String url;
     private String itemName;

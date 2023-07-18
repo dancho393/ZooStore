@@ -1,8 +1,9 @@
 package com.example.zoostore.api.operations.item.create;
 
+import com.example.zoostore.api.operations.Operation;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface CreateItemService {
-    public CreateItemResponse createItem(CreateItemRequest item);
+public interface CreateItemService extends Operation<CreateItemResponse,CreateItemRequest> {
+    public CreateItemResponse process(CreateItemRequest item);
 }

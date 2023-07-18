@@ -1,5 +1,6 @@
 package com.example.zoostore.api.operations.item.create;
 
+import com.example.zoostore.api.operations.OperationResponse;
 import lombok.*;
 
 import java.util.UUID;
@@ -9,7 +10,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateItemResponse {
+public class CreateItemResponse implements OperationResponse {
     private UUID id;
     private String title;
     private String vendorName;

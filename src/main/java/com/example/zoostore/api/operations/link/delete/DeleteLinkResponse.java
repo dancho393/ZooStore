@@ -1,5 +1,6 @@
 package com.example.zoostore.api.operations.link.delete;
 
+import com.example.zoostore.api.operations.OperationResponse;
 import lombok.*;
 
 import java.util.UUID;
@@ -8,7 +9,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeleteLinkResponse {
+public class DeleteLinkResponse implements OperationResponse {
     private UUID id;
     private String url;
 }

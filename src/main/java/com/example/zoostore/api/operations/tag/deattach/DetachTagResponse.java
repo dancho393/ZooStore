@@ -1,6 +1,7 @@
 package com.example.zoostore.api.operations.tag.deattach;
 
-import com.example.zoostore.data.entities.Item;
+import com.example.zoostore.api.operations.OperationResponse;
+import com.example.zoostore.persistence.entities.Item;
 import lombok.*;
 
 import java.util.Set;
@@ -11,7 +12,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DetachTagResponse {
+public class DetachTagResponse implements OperationResponse {
     private UUID id;
     private String title;
     private Set<Item> itemNames;

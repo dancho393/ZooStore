@@ -1,5 +1,6 @@
 package com.example.zoostore.api.operations.tag.attach;
 
+import com.example.zoostore.api.operations.OperationResponse;
 import lombok.*;
 
 @Getter
@@ -7,7 +8,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AttachTagResponse {
+public class AttachTagResponse implements OperationResponse {
     private String itemName;
 
     private String tagName;

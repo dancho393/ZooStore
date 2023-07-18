@@ -1,5 +1,6 @@
 package com.example.zoostore.api.operations.tag.edit;
 
+import com.example.zoostore.api.operations.OperationResponse;
 import lombok.*;
 
 @Getter
@@ -7,6 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EditTagResponse {
+public class EditTagResponse implements OperationResponse {
     private String title;
 }

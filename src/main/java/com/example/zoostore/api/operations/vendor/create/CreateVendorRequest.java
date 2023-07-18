@@ -1,5 +1,6 @@
 package com.example.zoostore.api.operations.vendor.create;
 
+import com.example.zoostore.api.operations.OperationRequest;
 import lombok.*;
 
 @Getter
@@ -7,6 +8,6 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateVendorRequest {
+public class CreateVendorRequest implements OperationRequest {
     private String name;
 }
