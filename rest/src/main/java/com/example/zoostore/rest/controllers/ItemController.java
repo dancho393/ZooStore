@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/items")
 @RequiredArgsConstructor
 public class ItemController {
     private final ArchieveItemService archieveItemService;
@@ -41,16 +41,15 @@ public class ItemController {
     public ResponseEntity editItem(@Valid @RequestBody EditItemRequest item)  {
         return ResponseEntity.ok(editItemService.process(item));
     }
-    @GetMapping("/getItem")
-    public ResponseEntity getItem(@Valid @RequestParam UUID id)  {
-        GetItemRequest itemRequest=GetItemRequest.builder()
-                .id(id).build();
-        return ResponseEntity.ok(getItemService.process(itemRequest));
+
+    @GetMapping(path = "/{itemId}")
+    public ResponseEntity getItemById(@PathVariable UUID itemId) {
+        return ResponseEntity.ok(getItemService.process(GetItemRequest.builder()
+                .id(itemId)
+                .build()));
     }
-    @GetMapping
-    public ResponseEntity getItem(){
-        return ResponseEntity.ok(null);
-    }
+
+
     @GetMapping("/getItemsByTag")
     public ResponseEntity getItemsByTag(@Valid @RequestBody FindItemsByTagRequest ItemsByTag){
         return ResponseEntity.ok(findItemsByTagIMPL.process(ItemsByTag));

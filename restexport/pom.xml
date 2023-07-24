@@ -13,11 +13,7 @@
     <version>${revision}</version>
 
    <dependencies>
-       <dependency>
-           <groupId>org.springframework.cloud</groupId>
-           <artifactId>spring-cloud-starter-openfeign</artifactId>
-           <version>4.0.3</version>
-       </dependency>
+
 
        <dependency>
            <groupId>com.example.zoostore</groupId>

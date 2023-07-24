@@ -16,12 +16,12 @@
         <dependency>
             <groupId>com.example.zoostore</groupId>
             <artifactId>api</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>com.example.zoostore</groupId>
             <artifactId>persistence</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
 
     </dependencies>
