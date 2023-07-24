@@ -9,7 +9,6 @@ import com.example.zoostore.api.operations.item.edit.EditItemService;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagRequest;
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemService;
-import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.core.operations.item.FindItemsByTagIMPL;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +26,7 @@ public class ItemController {
     private final EditItemService editItemService;
     private final GetItemService getItemService;
     private final FindItemsByTagIMPL findItemsByTagIMPL;
-    //private final ZooStoreRestClient;
+
     @PostMapping("/createItem")
     public ResponseEntity createItem(@Valid  @RequestBody CreateItemRequest item){;
 
