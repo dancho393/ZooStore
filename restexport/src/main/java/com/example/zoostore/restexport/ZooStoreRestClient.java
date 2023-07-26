@@ -1,4 +1,4 @@
-package com.example.zoostore.restexport.restoperation;
+package com.example.zoostore.restexport;
 import com.example.zoostore.api.operations.item.get.GetItemResponse;
 import feign.Headers;
 import feign.Param;
