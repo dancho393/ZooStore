@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-public interface DetachTagService extends Operation<DetachTagResponse,DetachTagRequest> {
+public interface DetachTagOperation extends Operation<DetachTagResponse,DetachTagRequest> {
     public DetachTagResponse process(DetachTagRequest tagItem);
 }

@@ -4,6 +4,6 @@ import com.example.zoostore.api.operations.base.Operation;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface GetLinkService extends Operation<GetLinkResponse,GetLinkRequest>{
+public interface GetLinkOperation extends Operation<GetLinkResponse,GetLinkRequest>{
     public GetLinkResponse process(GetLinkRequest link) ;
 }

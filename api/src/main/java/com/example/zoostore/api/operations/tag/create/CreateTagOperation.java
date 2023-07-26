@@ -4,6 +4,6 @@ import com.example.zoostore.api.operations.base.Operation;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface CreateTagService extends Operation<CreateTagResponse,CreateTagRequest> {
+public interface CreateTagOperation extends Operation<CreateTagResponse,CreateTagRequest> {
     public CreateTagResponse process(CreateTagRequest tag);
 }

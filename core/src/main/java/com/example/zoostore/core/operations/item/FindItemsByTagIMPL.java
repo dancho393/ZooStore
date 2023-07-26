@@ -2,7 +2,7 @@ package com.example.zoostore.core.operations.item;
 
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagRequest;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagResponse;
-import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagService;
+import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagOperation;
 import com.example.zoostore.api.operations.item.findbytag.ItemByTagRequest;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.repositories.ItemRepository;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class FindItemsByTagIMPL implements FindItemsByTagService {
+public class FindItemsByTagIMPL implements FindItemsByTagOperation {
     private final ItemRepository itemRepository;
     @Override
     public FindItemsByTagResponse process(FindItemsByTagRequest tag) {

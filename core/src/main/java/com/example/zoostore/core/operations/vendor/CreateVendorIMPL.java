@@ -2,7 +2,7 @@ package com.example.zoostore.core.operations.vendor;
 
 import com.example.zoostore.api.operations.vendor.create.CreateVendorRequest;
 import com.example.zoostore.api.operations.vendor.create.CreateVendorResponse;
-import com.example.zoostore.api.operations.vendor.create.CreateVendorService;
+import com.example.zoostore.api.operations.vendor.create.CreateVendorOperation;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Vendor;
 import com.example.zoostore.persistence.repositories.VendorRepository;
@@ -13,7 +13,7 @@ import java.util.HashSet;
 
 @Service
 @RequiredArgsConstructor
-public class CreateVendorIMPL implements CreateVendorService {
+public class CreateVendorIMPL implements CreateVendorOperation {
     private final VendorRepository vendorRepository;
 
     @Override

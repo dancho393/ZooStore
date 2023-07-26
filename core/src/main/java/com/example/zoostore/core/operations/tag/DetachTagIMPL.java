@@ -3,7 +3,7 @@ package com.example.zoostore.core.operations.tag;
 
 import com.example.zoostore.api.operations.tag.deattach.DetachTagRequest;
 import com.example.zoostore.api.operations.tag.deattach.DetachTagResponse;
-import com.example.zoostore.api.operations.tag.deattach.DetachTagService;
+import com.example.zoostore.api.operations.tag.deattach.DetachTagOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Tag;
 import com.example.zoostore.persistence.repositories.TagRepository;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class DetachTagIMPL implements DetachTagService {
+public class DetachTagIMPL implements DetachTagOperation {
     private final TagRepository tagRepository;
     @Override
     public DetachTagResponse process(DetachTagRequest tagItem) {

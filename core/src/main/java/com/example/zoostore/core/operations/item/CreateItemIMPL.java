@@ -2,7 +2,7 @@ package com.example.zoostore.core.operations.item;
 
 import com.example.zoostore.api.operations.item.create.CreateItemRequest;
 import com.example.zoostore.api.operations.item.create.CreateItemResponse;
-import com.example.zoostore.api.operations.item.create.CreateItemService;
+import com.example.zoostore.api.operations.item.create.CreateItemOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.core.mapper.ItemMapper;
 import com.example.zoostore.persistence.entities.Item;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CreateItemIMPL implements CreateItemService {
+public class CreateItemIMPL implements CreateItemOperation {
     private final ItemRepository itemRepository;
     private final ItemMapper itemMapper;
     private final VendorRepository vendorRepository;

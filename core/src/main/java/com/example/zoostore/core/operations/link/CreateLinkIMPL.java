@@ -2,7 +2,7 @@ package com.example.zoostore.core.operations.link;
 
 import com.example.zoostore.api.operations.link.create.CreateLinkRequest;
 import com.example.zoostore.api.operations.link.create.CreateLinkResponse;
-import com.example.zoostore.api.operations.link.create.CreateLinkService;
+import com.example.zoostore.api.operations.link.create.CreateLinkOperation;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Link;
 import com.example.zoostore.persistence.repositories.ItemRepository;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CreateLinkIMPL implements CreateLinkService {
+public class CreateLinkIMPL implements CreateLinkOperation {
     private final LinkRepository linkRepository;
     private final ItemRepository itemRepository;
     @Override

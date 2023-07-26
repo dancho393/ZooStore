@@ -3,7 +3,7 @@ package com.example.zoostore.core.operations.item;
 
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemResponse;
-import com.example.zoostore.api.operations.item.get.GetItemService;
+import com.example.zoostore.api.operations.item.get.GetItemOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Link;
@@ -13,12 +13,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class GetItemIMPL implements GetItemService {
+public class GetItemIMPL implements GetItemOperation {
     private final ItemRepository itemRepository;
     @Override
     public GetItemResponse process(GetItemRequest item)  {

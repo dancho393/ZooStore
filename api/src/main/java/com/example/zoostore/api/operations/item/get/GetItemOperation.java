@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-public interface GetItemService extends Operation<GetItemResponse,GetItemRequest> {
+public interface GetItemOperation extends Operation<GetItemResponse,GetItemRequest> {
     public GetItemResponse process(GetItemRequest item) ;
 }
