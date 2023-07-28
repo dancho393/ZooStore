@@ -10,8 +10,10 @@ import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagRequest;
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemOperation;
 import com.example.zoostore.core.operations.item.FindItemsByTagIMPL;
+import feign.Param;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +29,12 @@ public class ItemController {
     private final GetItemOperation getItemOperation;
     private final FindItemsByTagIMPL findItemsByTagIMPL;
 
-    @PostMapping("/createItem")
+    @PostMapping("/new")
     public ResponseEntity createItem(@Valid  @RequestBody CreateItemRequest item){;
 
        return ResponseEntity.ok(createItemOperation.process(item));
             }
-            @PostMapping("/archieve")
+            @PostMapping("/archieved")
     public ResponseEntity archieveItem(@Valid @RequestBody ArchieveItemRequest item)  {
         return ResponseEntity.ok(archieveItemOperation.process(item));
 
@@ -50,9 +52,13 @@ public class ItemController {
     }
 
 
-    @GetMapping("/getItemsByTag")
-    public ResponseEntity getItemsByTag(@Valid @RequestBody FindItemsByTagRequest ItemsByTag){
-        return ResponseEntity.ok(findItemsByTagIMPL.process(ItemsByTag));
+    @GetMapping("/byTag/{tagId}/{page}")
+    public ResponseEntity getItemsByTag( @PathVariable UUID tagId,@PathVariable int page){
+
+        return ResponseEntity.ok(findItemsByTagIMPL.process(FindItemsByTagRequest.builder()
+                .tagId(tagId)
+                .page(page)
+                .build()));
     }
 
 

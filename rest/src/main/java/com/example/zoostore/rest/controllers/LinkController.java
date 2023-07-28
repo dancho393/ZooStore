@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/link")
+@RequestMapping("/links")
 @RequiredArgsConstructor
 public class LinkController {
 
@@ -24,7 +24,7 @@ public class LinkController {
     private final EditLinkOperation editLinkOperation;
     private final GetLinkOperation getLinkOperation;
 
-    @PostMapping("/createLink")
+    @PostMapping("/new")
     public ResponseEntity createLink(@Valid  @RequestBody CreateLinkRequest link){
 
         return ResponseEntity.ok(createLinkOperation.process(link));

@@ -2,8 +2,11 @@ package com.example.zoostore.api.operations.item.findbytag;
 
 import com.example.zoostore.api.operations.base.OperationResponse;
 import lombok.*;
+import org.springframework.data.domain.Page;
 
-import java.util.ArrayList;
+
+import java.util.List;
+
 
 
 @Getter
@@ -12,5 +15,5 @@ import java.util.ArrayList;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FindItemsByTagResponse implements OperationResponse {
-    private ArrayList<ItemByTagRequest> items;
+    private List<ItemByTagRequest> items;
 }

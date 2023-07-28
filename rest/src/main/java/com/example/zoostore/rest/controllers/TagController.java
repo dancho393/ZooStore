@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/tag")
+@RequestMapping("/tags")
 @RequiredArgsConstructor
 public class TagController {
 
@@ -25,7 +25,7 @@ public class TagController {
     private final AttachTagIMPL attachTag;
     private final DetachTagIMPL detachTag;
 
-    @PostMapping("/createTag")
+    @PostMapping("/new")
     public ResponseEntity addTag(@Valid @RequestBody CreateTagRequest tag){
         return ResponseEntity.ok(createTagService.process(tag));
     }

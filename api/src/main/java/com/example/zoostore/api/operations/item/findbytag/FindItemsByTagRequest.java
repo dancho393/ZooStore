@@ -14,4 +14,5 @@ import java.util.UUID;
 public class FindItemsByTagRequest implements OperationRequest {
     @NotBlank
     private UUID tagId;
+    private int page;
 }

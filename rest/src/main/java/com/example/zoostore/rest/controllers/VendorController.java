@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/vendor")
+@RequestMapping("/vendors")
 public class VendorController {
 
     private final CreateVendorOperation createVendorOperation;
@@ -24,7 +24,7 @@ public class VendorController {
     private final EditVendorOperation editVendorOperation;
     private final GetVendorOperation getVendorOperation;
 
-    @PostMapping("/createVendor")
+    @PostMapping("/new")
     public ResponseEntity createVendor(@Valid @RequestBody CreateVendorRequest vendor){
         return ResponseEntity.ok(createVendorOperation.process(vendor));
     }
