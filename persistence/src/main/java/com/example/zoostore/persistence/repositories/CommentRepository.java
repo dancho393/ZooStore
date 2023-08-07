@@ -1,16 +1,14 @@
 package com.example.zoostore.persistence.repositories;
 
-
+import com.example.zoostore.persistence.entities.Comment;
 import com.example.zoostore.persistence.entities.Item;
-import feign.Param;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, UUID> {
-    Page<Item> findAllByTags_Id(UUID tagId, Pageable pageable);
-
+public interface CommentRepository extends JpaRepository<Comment, UUID> {
+    List<Comment> findAllByItem(Item item);
 }

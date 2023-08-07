@@ -3,6 +3,8 @@ package com.example.zoostore.api.operations.item.get;
 import com.example.zoostore.api.operations.base.OperationResponse;
 import lombok.*;
 
+import java.util.Map;
+import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.UUID;
 
@@ -18,4 +20,6 @@ public class GetItemResponse implements OperationResponse {
     private String vendorName;
     private Set<String> links;
     private Set<String> tags;
+    private Map<String,Float> comments;
+    private String avgRating;
 }

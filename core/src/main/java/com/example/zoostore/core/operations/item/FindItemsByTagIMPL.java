@@ -35,7 +35,7 @@ public class FindItemsByTagIMPL implements FindItemsByTagOperation {
                                 .description(item.getDescription())
                                 .vendorName(item.getVendor().getName())
                                 .build())
-                        .collect(Collectors.toList());;
+                        .collect(Collectors.toList());
 
 
         return FindItemsByTagResponse.builder()
