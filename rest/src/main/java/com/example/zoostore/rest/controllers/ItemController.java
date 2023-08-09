@@ -6,9 +6,15 @@ import com.example.zoostore.api.operations.item.create.CreateItemRequest;
 import com.example.zoostore.api.operations.item.create.CreateItemOperation;
 import com.example.zoostore.api.operations.item.edit.EditItemRequest;
 import com.example.zoostore.api.operations.item.edit.EditItemOperation;
+import com.example.zoostore.api.operations.item.findbyregex.FindByRegexOperation;
+import com.example.zoostore.api.operations.item.findbyregex.FindByRegexRequest;
+import com.example.zoostore.api.operations.item.findbyregex.FindByRegexResponse;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagRequest;
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemOperation;
+import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsOperation;
+import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsRequest;
+import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsResponse;
 import com.example.zoostore.core.operations.item.FindItemsByTagIMPL;
 import feign.Param;
 import jakarta.validation.Valid;
@@ -28,7 +34,8 @@ public class ItemController {
     private final EditItemOperation editItemOperation;
     private final GetItemOperation getItemOperation;
     private final FindItemsByTagIMPL findItemsByTagIMPL;
-
+    private final FindByRegexOperation findByRegex;
+    private final GetRecommendeeItemsOperation getRecommendeeItems;
     @PostMapping("/new")
     public ResponseEntity createItem(@Valid  @RequestBody CreateItemRequest item){;
 
@@ -59,6 +66,19 @@ public class ItemController {
                 .tagId(tagId)
                 .page(page)
                 .build()));
+    }
+    @GetMapping("/regex/{keyword}/{page}")
+    public ResponseEntity<FindByRegexResponse> findByRegexResponse(@PathVariable String keyword,@PathVariable int page){
+
+        return ResponseEntity.ok(findByRegex.process(FindByRegexRequest.builder()
+                .keyWord(keyword)
+                .page(page)
+                .build()));
+    }
+    @PostMapping("/recommend")
+    public ResponseEntity<GetRecommendeeItemsResponse> getRecommendeeItems(@RequestBody GetRecommendeeItemsRequest request){
+        return ResponseEntity.ok(getRecommendeeItems.process(request));
+
     }
 
 

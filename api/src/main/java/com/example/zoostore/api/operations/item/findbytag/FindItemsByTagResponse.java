@@ -15,5 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FindItemsByTagResponse implements OperationResponse {
+    private String tagName;
     private List<ItemByTagRequest> items;
 }

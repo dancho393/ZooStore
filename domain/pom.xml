@@ -11,6 +11,14 @@
     <groupId>com.example.zoostore</groupId>
     <artifactId>domain</artifactId>
     <version>${revision}</version>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-jackson</artifactId>
+            <version>12.4</version>
+        </dependency>
+
+    </dependencies>
 
 
 

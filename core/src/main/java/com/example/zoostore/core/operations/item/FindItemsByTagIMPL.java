@@ -4,8 +4,11 @@ import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagRequest;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagResponse;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagOperation;
 import com.example.zoostore.api.operations.item.findbytag.ItemByTagRequest;
+import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
+import com.example.zoostore.persistence.entities.Tag;
 import com.example.zoostore.persistence.repositories.ItemRepository;
+import com.example.zoostore.persistence.repositories.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,9 +24,12 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class FindItemsByTagIMPL implements FindItemsByTagOperation {
     private final ItemRepository itemRepository;
+    private final TagRepository tagRepository;
     @Override
     public FindItemsByTagResponse process(FindItemsByTagRequest tag) {
         Pageable pageable = PageRequest.of(tag.getPage(),5);
+        Tag tagEntity=tagRepository.findById(tag.getTagId())
+                .orElseThrow(()->new ResourceNotFoundException("Tag Not Found"));
         Page<Item> taggedItems=itemRepository.findAllByTags_Id(tag.getTagId(),pageable);
         List<Item> list=taggedItems.getContent();
 
@@ -39,6 +45,7 @@ public class FindItemsByTagIMPL implements FindItemsByTagOperation {
 
 
         return FindItemsByTagResponse.builder()
+                .tagName(tagEntity.getTitle())
                 .items(responseList)
                 .build();
     }

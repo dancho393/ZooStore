@@ -52,6 +52,8 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private Set<Link> links;
 
+    private Float rating=0.0f;
+
 
 
 

@@ -21,4 +21,6 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
+
+    private UUID userId;
 }

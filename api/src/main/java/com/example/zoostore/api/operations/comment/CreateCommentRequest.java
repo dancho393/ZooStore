@@ -13,6 +13,9 @@ import java.util.UUID;
 public class CreateCommentRequest implements OperationRequest {
     @NotBlank
     private UUID itemId;
+
+    @NotBlank
+    private UUID userId;
     @NotBlank
     private String comment;
     @DecimalMin(value = "1.0", inclusive = true)

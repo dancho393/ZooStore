@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateCommentResponse implements OperationResponse {
+    private String itemName;
     private String comment;
     private Float rating;
-    private String itemName;
 }
