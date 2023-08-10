@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
 
     private final ItemRepository itemRepository;
-    private final TagRepository tagRepository;
     @Override
     public GetRecommendeeItemsResponse process(GetRecommendeeItemsRequest request) {
         //This stream gets all the purchases from one month ago
@@ -53,11 +52,9 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
             UUID maxTagId = entry.getKey();
             int maxTagValue = entry.getValue();
         });
-        Pageable pageable= PageRequest.of(0,5);
-        //Take param page and check if repo is working
+        Pageable pageable= PageRequest.of(request.getPage(), 5);
         List<Item> recItems=itemRepository.findAllByTags_IdOrderByRatingDesc(
                 maxTagEntry.get().getKey(),pageable).getContent();
-
 
 
         //Get the most bought tag

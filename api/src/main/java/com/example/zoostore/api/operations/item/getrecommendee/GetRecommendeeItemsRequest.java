@@ -14,4 +14,5 @@ import java.util.UUID;
 @Setter
 public class GetRecommendeeItemsRequest implements OperationRequest {
     private  List<GetUserPurchase> purchaseList;
+    private int page;
 }
