@@ -1,9 +1,9 @@
 package com.example.zoostore.core.operations.item;
 
 
+import com.example.zoostore.api.operations.item.edit.EditItemOperation;
 import com.example.zoostore.api.operations.item.edit.EditItemRequest;
 import com.example.zoostore.api.operations.item.edit.EditItemResponse;
-import com.example.zoostore.api.operations.item.edit.EditItemOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Vendor;

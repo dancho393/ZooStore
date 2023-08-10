@@ -4,7 +4,6 @@ import com.example.zoostore.api.operations.base.OperationResponse;
 import lombok.*;
 
 import java.util.List;
-import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor

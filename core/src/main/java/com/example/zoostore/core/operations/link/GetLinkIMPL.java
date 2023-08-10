@@ -1,8 +1,8 @@
 package com.example.zoostore.core.operations.link;
 
+import com.example.zoostore.api.operations.link.get.GetLinkOperation;
 import com.example.zoostore.api.operations.link.get.GetLinkRequest;
 import com.example.zoostore.api.operations.link.get.GetLinkResponse;
-import com.example.zoostore.api.operations.link.get.GetLinkOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Link;
 import com.example.zoostore.persistence.repositories.LinkRepository;

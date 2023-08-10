@@ -9,8 +9,9 @@ import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.repositories.CommentRepository;
 import com.example.zoostore.persistence.repositories.ItemRepository;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -28,10 +29,22 @@ public class CreateCommentIMPL implements CreateCommentOperation {
                 .item(item)
                 .build();
         commentRepository.save(comment);
+        item.setRating(calculateRating(item));
+        itemRepository.save(item);
+
         return CreateCommentResponse.builder()
                 .itemName(item.getTitle())
                 .rating(comment.getRating())
                 .comment(comment.getComment())
                 .build();
     }
+
+    private Float calculateRating(Item item){
+        List<Comment> commentList = commentRepository.findAllByItem(item);
+        Double sum=commentList.stream().mapToDouble(comment->comment.getRating()).sum();
+        Double rating=sum/commentList.size();
+        float roundedRating = (float) Math.round(rating * 10) / 10;
+        return roundedRating;
+    }
 }
+

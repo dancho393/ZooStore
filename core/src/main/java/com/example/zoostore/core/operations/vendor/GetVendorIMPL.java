@@ -1,7 +1,8 @@
 package com.example.zoostore.core.operations.vendor;
+
+import com.example.zoostore.api.operations.vendor.get.GetVendorOperation;
 import com.example.zoostore.api.operations.vendor.get.GetVendorRequest;
 import com.example.zoostore.api.operations.vendor.get.GetVendorResponse;
-import com.example.zoostore.api.operations.vendor.get.GetVendorOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Vendor;
 import com.example.zoostore.persistence.repositories.VendorRepository;

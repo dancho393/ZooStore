@@ -1,9 +1,9 @@
 package com.example.zoostore.core.operations.item;
 
 
+import com.example.zoostore.api.operations.item.get.GetItemOperation;
 import com.example.zoostore.api.operations.item.get.GetItemRequest;
 import com.example.zoostore.api.operations.item.get.GetItemResponse;
-import com.example.zoostore.api.operations.item.get.GetItemOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Comment;
 import com.example.zoostore.persistence.entities.Item;

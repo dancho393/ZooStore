@@ -7,11 +7,9 @@ import com.example.zoostore.api.operations.item.findbyregex.FindByRegexResponse;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.repositories.ItemRepository;
 import lombok.AllArgsConstructor;
-
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 
 import java.util.ArrayList;
 import java.util.HashSet;

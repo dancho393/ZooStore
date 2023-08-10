@@ -1,9 +1,9 @@
 package com.example.zoostore.core.operations.tag;
 
 
+import com.example.zoostore.api.operations.tag.deattach.DetachTagOperation;
 import com.example.zoostore.api.operations.tag.deattach.DetachTagRequest;
 import com.example.zoostore.api.operations.tag.deattach.DetachTagResponse;
-import com.example.zoostore.api.operations.tag.deattach.DetachTagOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Tag;
 import com.example.zoostore.persistence.repositories.TagRepository;

@@ -1,7 +1,9 @@
 package com.example.zoostore.api.operations.comment;
 
 import com.example.zoostore.api.operations.base.OperationRequest;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.util.UUID;

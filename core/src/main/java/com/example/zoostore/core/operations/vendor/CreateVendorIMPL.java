@@ -1,8 +1,8 @@
 package com.example.zoostore.core.operations.vendor;
 
+import com.example.zoostore.api.operations.vendor.create.CreateVendorOperation;
 import com.example.zoostore.api.operations.vendor.create.CreateVendorRequest;
 import com.example.zoostore.api.operations.vendor.create.CreateVendorResponse;
-import com.example.zoostore.api.operations.vendor.create.CreateVendorOperation;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Vendor;
 import com.example.zoostore.persistence.repositories.VendorRepository;

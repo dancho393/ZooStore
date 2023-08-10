@@ -1,7 +1,7 @@
 package com.example.zoostore.restexport;
+
 import com.example.zoostore.api.operations.comment.CreateCommentRequest;
 import com.example.zoostore.api.operations.comment.CreateCommentResponse;
-import com.example.zoostore.api.operations.item.findbyregex.FindByRegexRequest;
 import com.example.zoostore.api.operations.item.findbyregex.FindByRegexResponse;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagResponse;
 import com.example.zoostore.api.operations.item.get.GetItemResponse;
@@ -10,7 +10,6 @@ import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeIte
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
-import jakarta.annotation.PreDestroy;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Headers({"Content-Type: application/json"})

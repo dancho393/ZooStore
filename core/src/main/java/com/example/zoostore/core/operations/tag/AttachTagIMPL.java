@@ -1,9 +1,9 @@
 package com.example.zoostore.core.operations.tag;
 
 
+import com.example.zoostore.api.operations.tag.attach.AttachTagOperation;
 import com.example.zoostore.api.operations.tag.attach.AttachTagRequest;
 import com.example.zoostore.api.operations.tag.attach.AttachTagResponse;
-import com.example.zoostore.api.operations.tag.attach.AttachTagOperation;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Tag;

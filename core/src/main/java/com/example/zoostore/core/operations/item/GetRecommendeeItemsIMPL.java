@@ -7,18 +7,13 @@ import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeIte
 import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsResponse;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
-import com.example.zoostore.persistence.entities.Tag;
 import com.example.zoostore.persistence.repositories.ItemRepository;
-import com.example.zoostore.persistence.repositories.TagRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -31,6 +26,41 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
     public GetRecommendeeItemsResponse process(GetRecommendeeItemsRequest request) {
         //This stream gets all the purchases from one month ago
         List<GetUserPurchase> recomendList= filterByDate(request.getPurchaseList());
+        Map<UUID,Integer> tags= findCountTags(recomendList);
+
+        //Get the most bought tag
+        Optional<Map.Entry<UUID, Integer>> maxTagEntry = tags.entrySet().stream()
+                .max(Comparator.comparingInt(Map.Entry::getValue));
+
+        maxTagEntry.ifPresent(entry -> {
+            UUID maxTagId = entry.getKey();
+            int maxTagValue = entry.getValue();
+        });
+
+        Pageable pageable= PageRequest.of(request.getPage(), 5);
+        List<Item> recItems=itemRepository.findAllByTags_IdOrderByRatingDesc(
+                maxTagEntry.get().getKey(),pageable).getContent();
+
+
+
+        return GetRecommendeeItemsResponse.builder()
+                .items(recItems)
+                .build();
+    }
+
+
+    private List filterByDate(List<GetUserPurchase> list){
+        LocalDate oneMonthAgo = LocalDate.now().minusMonths(1);
+
+        return list.stream()
+                .filter(getUserPurchase -> {
+                    LocalDate purchaseLocalDate = getUserPurchase.getPurchaseDate().toLocalDateTime().toLocalDate();
+                    return !purchaseLocalDate.isBefore(oneMonthAgo) &&
+                            !purchaseLocalDate.isAfter(LocalDate.now());
+                })
+                .collect(Collectors.toList());
+    }
+    private Map<UUID,Integer> findCountTags(List<GetUserPurchase> recomendList){
         Map<UUID,Integer> tags= new HashMap<>();
         recomendList.stream().forEach(purchase ->{
             purchase.getItems().entrySet().stream().forEach(itemId->{
@@ -45,33 +75,7 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
                 });
             });
         });
-        Optional<Map.Entry<UUID, Integer>> maxTagEntry = tags.entrySet().stream()
-                .max(Comparator.comparingInt(Map.Entry::getValue));
-
-        maxTagEntry.ifPresent(entry -> {
-            UUID maxTagId = entry.getKey();
-            int maxTagValue = entry.getValue();
-        });
-        Pageable pageable= PageRequest.of(request.getPage(), 5);
-        List<Item> recItems=itemRepository.findAllByTags_IdOrderByRatingDesc(
-                maxTagEntry.get().getKey(),pageable).getContent();
-
-
-        //Get the most bought tag
-        return GetRecommendeeItemsResponse.builder()
-                .items(recItems)
-                .build();
-    }
-    public List filterByDate(List<GetUserPurchase> list){
-        LocalDate oneMonthAgo = LocalDate.now().minusMonths(1);
-
-        return list.stream()
-                .filter(getUserPurchase -> {
-                    LocalDate purchaseLocalDate = getUserPurchase.getPurchaseDate().toLocalDateTime().toLocalDate();
-                    return !purchaseLocalDate.isBefore(oneMonthAgo) &&
-                            !purchaseLocalDate.isAfter(LocalDate.now());
-                })
-                .collect(Collectors.toList());
+        return tags;
     }
     }
 

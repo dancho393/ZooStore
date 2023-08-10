@@ -4,7 +4,6 @@ import com.example.zoostore.api.operations.base.OperationResponse;
 import lombok.*;
 
 import java.util.Map;
-import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.UUID;
 

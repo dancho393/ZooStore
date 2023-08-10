@@ -1,8 +1,8 @@
 package com.example.zoostore.core.operations.link;
 
+import com.example.zoostore.api.operations.link.create.CreateLinkOperation;
 import com.example.zoostore.api.operations.link.create.CreateLinkRequest;
 import com.example.zoostore.api.operations.link.create.CreateLinkResponse;
-import com.example.zoostore.api.operations.link.create.CreateLinkOperation;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Link;
 import com.example.zoostore.persistence.repositories.ItemRepository;

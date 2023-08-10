@@ -5,7 +5,6 @@ import com.example.zoostore.api.operations.comment.CreateCommentRequest;
 import com.example.zoostore.api.operations.comment.CreateCommentResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

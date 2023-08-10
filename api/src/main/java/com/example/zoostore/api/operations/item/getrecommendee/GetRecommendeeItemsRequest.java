@@ -5,7 +5,6 @@ import com.example.zoostore.api.operations.base.OperationRequest;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor

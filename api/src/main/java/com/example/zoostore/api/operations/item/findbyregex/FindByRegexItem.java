@@ -1,10 +1,6 @@
 package com.example.zoostore.api.operations.item.findbyregex;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.*;
-import org.aspectj.apache.bcel.generic.Tag;
 
 import java.util.Set;
 import java.util.UUID;

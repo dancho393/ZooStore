@@ -1,8 +1,8 @@
 package com.example.zoostore.core.operations.item;
 
+import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagOperation;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagRequest;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagResponse;
-import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagOperation;
 import com.example.zoostore.api.operations.item.findbytag.ItemByTagRequest;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
@@ -15,7 +15,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
