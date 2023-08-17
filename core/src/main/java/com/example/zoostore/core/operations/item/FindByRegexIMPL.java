@@ -26,6 +26,7 @@ public class FindByRegexIMPL implements FindByRegexOperation {
         Pageable pageable = PageRequest.of(request.getPage(), 5);
         List<Item> items = itemRepository.findAllByTitleRegex(request.getKeyWord(),pageable).getContent();
         List<FindByRegexItem> itemList = new ArrayList<>();
+
         items.forEach(item -> {
             Set<String> links = new HashSet<>();
             item.getLinks().forEach(link -> {

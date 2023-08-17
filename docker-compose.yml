@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  zoostoredb:
+    container_name: mysqldb
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+    networks:
+      springboot-mysql-net:
+  zoostore:
+    container_name: springboot-rest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      springboot-mysql-net:
+    restart: on-failure
+    depends_on:
+      - zoostoredb
+
+networks:
+  springboot-mysql-net:

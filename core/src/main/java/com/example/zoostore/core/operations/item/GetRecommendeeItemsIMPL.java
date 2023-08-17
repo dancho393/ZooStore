@@ -1,10 +1,11 @@
 package com.example.zoostore.core.operations.item;
 
 
-import com.example.storageservice.api.api.operations.purchase.getforuser.GetUserPurchase;
+
 import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsOperation;
 import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsRequest;
 import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeItemsResponse;
+import com.example.zoostore.api.operations.item.getrecommendee.GetRecommendeeUser;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.repositories.ItemRepository;
@@ -25,7 +26,7 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
     @Override
     public GetRecommendeeItemsResponse process(GetRecommendeeItemsRequest request) {
         //This stream gets all the purchases from one month ago
-        List<GetUserPurchase> recomendList= filterByDate(request.getPurchaseList());
+        List<GetRecommendeeUser> recomendList= filterByDate(request.getPurchaseList());
         Map<UUID,Integer> tags= findCountTags(recomendList);
 
         //Get the most bought tag
@@ -49,7 +50,7 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
     }
 
 
-    private List filterByDate(List<GetUserPurchase> list){
+    private List filterByDate(List<GetRecommendeeUser> list){
         LocalDate oneMonthAgo = LocalDate.now().minusMonths(1);
 
         return list.stream()
@@ -60,7 +61,7 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
                 })
                 .collect(Collectors.toList());
     }
-    private Map<UUID,Integer> findCountTags(List<GetUserPurchase> recomendList){
+    private Map<UUID,Integer> findCountTags(List<GetRecommendeeUser> recomendList){
         Map<UUID,Integer> tags= new HashMap<>();
         recomendList.stream().forEach(purchase ->{
             purchase.getItems().entrySet().stream().forEach(itemId->{

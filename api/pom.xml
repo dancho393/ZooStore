@@ -13,11 +13,7 @@
     <version>${revision}</version>
 
     <dependencies>
-        <dependency>
-            <artifactId>api</artifactId>
-            <groupId>com.example.storageservice</groupId>
-            <version>0.0.4-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
