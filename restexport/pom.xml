@@ -15,12 +15,7 @@
    <dependencies>
 
 
-       <dependency>
-           <groupId>com.example.zoostore</groupId>
-           <artifactId>api</artifactId>
-           <version>${revision}</version>
-           <scope>compile</scope>
-       </dependency>
+
        <dependency>
            <groupId>com.example.zoostore</groupId>
            <artifactId>api</artifactId>

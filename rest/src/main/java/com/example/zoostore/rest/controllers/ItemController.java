@@ -21,6 +21,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.DayOfWeek;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @RestController
@@ -56,7 +58,6 @@ public class ItemController {
                 .build()));
     }
 
-
     @GetMapping("/byTag/{tagId}/{page}")
     public ResponseEntity getItemsByTag( @PathVariable UUID tagId,@PathVariable int page){
 
@@ -67,7 +68,6 @@ public class ItemController {
     }
     @GetMapping("/regex/{keyword}/{page}")
     public ResponseEntity<FindByRegexResponse> findByRegexResponse(@PathVariable String keyword,@PathVariable int page){
-
         return ResponseEntity.ok(findByRegex.process(FindByRegexRequest.builder()
                 .keyWord(keyword)
                 .page(page)
@@ -78,9 +78,12 @@ public class ItemController {
         return ResponseEntity.ok(getRecommendeeItems.process(request));
 
     }
+    @GetMapping("/vaucher")
+    public ResponseEntity vaucherWheel(){
 
-
-
-
+        ZonedDateTime zonedDateTime=ZonedDateTime.now();
+        DayOfWeek currentDay=zonedDateTime.getDayOfWeek();
+        return ResponseEntity.ok(currentDay);
+    }
 
 }

@@ -21,6 +21,9 @@ public class CreateVendorIMPL implements CreateVendorOperation {
         Vendor vendorEntity =  Vendor.builder()
                 .name(vendor.getName())
                 .items(new HashSet<Item>())
+                .country(vendor.getCountry())
+                .city(vendor.getCity())
+                .continent(vendor.getContinent())
                 .build();
         vendorEntity = vendorRepository.save(vendorEntity);
 

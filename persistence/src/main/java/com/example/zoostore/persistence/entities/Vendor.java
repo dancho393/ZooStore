@@ -30,5 +30,11 @@ public class Vendor {
     @JsonManagedReference
     private Set<Item> items;
 
+    @Column
+    private String city;
+    @Column
+    private String country;
+    @Column
+    private String continent;
 
 }

@@ -22,7 +22,7 @@ public class CreateItemIMPL implements CreateItemOperation {
     public CreateItemResponse process(CreateItemRequest item) {
         Item itemEntity= itemMapper.toEntity(item);
         Vendor vendorEntity = vendorRepository.findById(item.getVendor())
-                .orElseThrow(()->new ResourceNotFoundException("Item Not Found"));
+                .orElseThrow(()->new ResourceNotFoundException("Vendor Not Found"));
         itemEntity.setVendor(vendorEntity);
         itemRepository.save(itemEntity);
 

@@ -12,4 +12,10 @@ import lombok.*;
 public class CreateVendorRequest implements OperationRequest {
     @NotBlank
     private String name;
+    @NotBlank
+    private String city;
+    @NotBlank
+    private String country;
+    @NotBlank
+    private String continent;
 }

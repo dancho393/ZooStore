@@ -2,11 +2,11 @@ version: "3.8"
 
 services:
   zoostoredb:
-    container_name: mysqldb
+    container_name: zoostoredb
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mydb
+      MYSQL_DATABASE: zoostoredb
     networks:
       springboot-mysql-net:
   zoostore:

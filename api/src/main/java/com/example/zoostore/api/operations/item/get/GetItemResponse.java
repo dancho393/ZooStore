@@ -16,9 +16,12 @@ public class GetItemResponse implements OperationResponse {
     private UUID id;
     private String title;
     private String description;
-    private String vendorName;
+
     private Set<String> links;
     private Set<String> tags;
     private Map<String,Float> comments;
     private String avgRating;
+    private String vendorName;
+    private String vendorCountry;
+    private String vendorCity;
 }

@@ -1,15 +1,14 @@
-FROM eclipse-temurin:17 AS build
-LABEL maintainer="danez7000@gmail.com"
-WORKDIR /zoo
-COPY . /zoo
+# Use the official OpenJDK image as the base image
+FROM openjdk:17
 
-RUN apt-get update && apt-get install -y maven
+# Set the working directory within the container
+WORKDIR /zoo-storage
 
-RUN mvn clean package
+# Copy the packaged JAR file from the target directory into the container
+COPY rest/target/StorageServiceApplication.jar zoo-storage.jar
+# Expose the port that your application runs on
 
-FROM eclipse-temurin:17
-WORKDIR /zoo
-COPY --from=build /zoo/target/ZooStore-0.0.4-SNAPSHOT.jar /zoo/zoostore-docker.jar
+EXPOSE 8080
+# Define the command to run your application
+CMD ["java", "-jar", "zoo-storage.jar"]
 
-
-ENTRYPOINT ["java", "-jar", "zoostore-docker.jar"]

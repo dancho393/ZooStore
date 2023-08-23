@@ -53,6 +53,8 @@ public class GetItemIMPL implements GetItemOperation {
                 .title(itemEntity.getTitle())
                 .description(itemEntity.getDescription())
                 .vendorName(itemEntity.getVendor().getName())
+                .vendorCity(itemEntity.getVendor().getCity())
+                .vendorCountry(itemEntity.getVendor().getCountry())
                 .links(links)
                 .tags(tags)
                 .comments(newComments)

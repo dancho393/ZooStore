@@ -42,8 +42,6 @@ public class GetRecommendeeItemsIMPL implements GetRecommendeeItemsOperation {
         List<Item> recItems=itemRepository.findAllByTags_IdOrderByRatingDesc(
                 maxTagEntry.get().getKey(),pageable).getContent();
 
-
-
         return GetRecommendeeItemsResponse.builder()
                 .items(recItems)
                 .build();
