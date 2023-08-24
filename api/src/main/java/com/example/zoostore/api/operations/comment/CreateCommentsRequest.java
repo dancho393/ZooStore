@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateCommentRequest implements OperationRequest {
+public class CreateCommentsRequest implements OperationRequest {
     @NotBlank
     private UUID itemId;
 

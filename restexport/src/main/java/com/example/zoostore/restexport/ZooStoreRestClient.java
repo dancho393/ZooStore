@@ -1,7 +1,7 @@
 package com.example.zoostore.restexport;
 
-import com.example.zoostore.api.operations.comment.CreateCommentRequest;
-import com.example.zoostore.api.operations.comment.CreateCommentResponse;
+import com.example.zoostore.api.operations.comment.CreateCommentsRequest;
+import com.example.zoostore.api.operations.comment.CreateCommentsResponse;
 import com.example.zoostore.api.operations.item.findbyregex.FindByRegexResponse;
 import com.example.zoostore.api.operations.item.findbytag.FindItemsByTagResponse;
 import com.example.zoostore.api.operations.item.get.GetItemResponse;
@@ -23,8 +23,7 @@ public interface ZooStoreRestClient {
     FindItemsByTagResponse getItemsByTag(@Param String tagId,@Param int page);
 
     @RequestLine("POST /comments")
-
-    CreateCommentResponse createComment(@RequestBody CreateCommentRequest request);
+    CreateCommentsResponse createComment(@RequestBody CreateCommentsRequest request);
 
     @RequestLine("GET /items/regex/{keyword}/{page}")
 

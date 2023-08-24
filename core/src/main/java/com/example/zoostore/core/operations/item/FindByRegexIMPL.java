@@ -43,8 +43,7 @@ public class FindByRegexIMPL implements FindByRegexOperation {
                             .description(item.getDescription())
                             .tags(tags)
                             .links(links)
-
-                    .build());
+                            .build());
         });
         return FindByRegexResponse.builder()
                 .keyWord(request.getKeyWord())

@@ -8,7 +8,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateCommentResponse implements OperationResponse {
+public class CreateCommentsResponse implements OperationResponse {
     private String itemName;
     private String comment;
     private Float rating;

@@ -1,8 +1,8 @@
 package com.example.zoostore.core.operations.comment;
 
 import com.example.zoostore.api.operations.comment.CreateCommentOperation;
-import com.example.zoostore.api.operations.comment.CreateCommentRequest;
-import com.example.zoostore.api.operations.comment.CreateCommentResponse;
+import com.example.zoostore.api.operations.comment.CreateCommentsRequest;
+import com.example.zoostore.api.operations.comment.CreateCommentsResponse;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Comment;
 import com.example.zoostore.persistence.entities.Item;
@@ -19,7 +19,7 @@ public class CreateCommentIMPL implements CreateCommentOperation {
     private final CommentRepository commentRepository;
     private final ItemRepository itemRepository;
     @Override
-    public CreateCommentResponse process(CreateCommentRequest request) {
+    public CreateCommentsResponse process(CreateCommentsRequest request) {
 
         Item item = itemRepository.findById(request.getItemId())
                 .orElseThrow(()->new ResourceNotFoundException("Item Not Found"));
@@ -32,7 +32,7 @@ public class CreateCommentIMPL implements CreateCommentOperation {
         item.setRating(calculateRating(item));
         itemRepository.save(item);
 
-        return CreateCommentResponse.builder()
+        return CreateCommentsResponse.builder()
                 .itemName(item.getTitle())
                 .rating(comment.getRating())
                 .comment(comment.getComment())

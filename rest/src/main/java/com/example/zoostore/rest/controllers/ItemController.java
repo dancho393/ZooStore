@@ -21,8 +21,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.DayOfWeek;
-import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @RestController
@@ -78,12 +76,6 @@ public class ItemController {
         return ResponseEntity.ok(getRecommendeeItems.process(request));
 
     }
-    @GetMapping("/vaucher")
-    public ResponseEntity vaucherWheel(){
 
-        ZonedDateTime zonedDateTime=ZonedDateTime.now();
-        DayOfWeek currentDay=zonedDateTime.getDayOfWeek();
-        return ResponseEntity.ok(currentDay);
-    }
 
 }

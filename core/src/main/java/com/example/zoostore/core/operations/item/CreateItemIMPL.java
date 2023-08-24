@@ -4,7 +4,6 @@ import com.example.zoostore.api.operations.item.create.CreateItemOperation;
 import com.example.zoostore.api.operations.item.create.CreateItemRequest;
 import com.example.zoostore.api.operations.item.create.CreateItemResponse;
 import com.example.zoostore.core.exceptions.ResourceNotFoundException;
-import com.example.zoostore.core.mapper.ItemMapper;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Vendor;
 import com.example.zoostore.persistence.repositories.ItemRepository;
@@ -16,11 +15,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CreateItemIMPL implements CreateItemOperation {
     private final ItemRepository itemRepository;
-    private final ItemMapper itemMapper;
+
     private final VendorRepository vendorRepository;
     @Override
     public CreateItemResponse process(CreateItemRequest item) {
-        Item itemEntity= itemMapper.toEntity(item);
+        Item itemEntity= Item.builder()
+                .title(item.getTitle())
+                .description(item.getDescription())
+                .build();
         Vendor vendorEntity = vendorRepository.findById(item.getVendor())
                 .orElseThrow(()->new ResourceNotFoundException("Vendor Not Found"));
         itemEntity.setVendor(vendorEntity);
@@ -31,7 +33,6 @@ public class CreateItemIMPL implements CreateItemOperation {
                 .title(itemEntity.getTitle())
                 .vendorName(vendorEntity.getName())
                 .build();
-
-
     }
+
 }

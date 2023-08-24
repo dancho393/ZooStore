@@ -3,6 +3,7 @@ package com.example.zoostore.core.operations.link;
 import com.example.zoostore.api.operations.link.create.CreateLinkOperation;
 import com.example.zoostore.api.operations.link.create.CreateLinkRequest;
 import com.example.zoostore.api.operations.link.create.CreateLinkResponse;
+import com.example.zoostore.core.exceptions.ResourceNotFoundException;
 import com.example.zoostore.persistence.entities.Item;
 import com.example.zoostore.persistence.entities.Link;
 import com.example.zoostore.persistence.repositories.ItemRepository;
@@ -17,7 +18,8 @@ public class CreateLinkIMPL implements CreateLinkOperation {
     private final ItemRepository itemRepository;
     @Override
     public CreateLinkResponse process(CreateLinkRequest link) {
-        Item itemEntity = itemRepository.findById(link.getItemId()).orElse(null);
+        Item itemEntity = itemRepository.findById(link.getItemId())
+                .orElseThrow(()->new ResourceNotFoundException("Item Not Found"));
         Link linkEntity = Link.builder()
                 .url(link.getUrl())
                 .item(itemEntity)

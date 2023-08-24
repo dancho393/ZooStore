@@ -39,13 +39,15 @@ public class GetItemIMPL implements GetItemOperation {
                 .collect(Collectors.toSet());
 
         Map<String,Float> newComments=new HashMap<>();
-        comments.stream().forEach(comment -> {
+        comments.forEach(comment -> {
             newComments.put(comment.getComment(),comment.getRating());
         });
         OptionalDouble averageRating = comments.stream()
                 .mapToDouble(Comment::getRating)
                 .average();
-        String avgRatingString = averageRating.isPresent() ? String.format("%.1f", averageRating.getAsDouble()) : "N/A";
+        String avgRatingString = averageRating.isPresent()
+                ? String.format("%.1f", averageRating.getAsDouble())
+                : "N/A";
 
 
         return GetItemResponse.builder()

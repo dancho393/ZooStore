@@ -1,8 +1,8 @@
 package com.example.zoostore.rest.controllers;
 
 import com.example.zoostore.api.operations.comment.CreateCommentOperation;
-import com.example.zoostore.api.operations.comment.CreateCommentRequest;
-import com.example.zoostore.api.operations.comment.CreateCommentResponse;
+import com.example.zoostore.api.operations.comment.CreateCommentsRequest;
+import com.example.zoostore.api.operations.comment.CreateCommentsResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CommentController {
     private final CreateCommentOperation createCommentOperation;
     @PostMapping
-    public ResponseEntity<CreateCommentResponse> createItem(@RequestBody @Valid CreateCommentRequest request){
+    public ResponseEntity<CreateCommentsResponse> createItem(@RequestBody @Valid CreateCommentsRequest request){
         return ResponseEntity.ok(createCommentOperation.process(request));
     }
 }
